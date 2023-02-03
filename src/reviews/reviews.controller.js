@@ -52,4 +52,3 @@ module.exports = {
   put: [asyncErrorBoundary(_paramsCheck), _bodyCheck, asyncErrorBoundary(put)],
   delete: [asyncErrorBoundary(_paramsCheck), asyncErrorBoundary(destroy)],
 };
-
