@@ -1,7 +1,7 @@
 const { table } = require("../connection");
 
 exports.up = function (knex) {
-  return knex.schema.createTable("movies_theaters", (table) => {
+  return knex.schema.createTableIfNotExists("movies_theaters", (table) => {
     table.integer("movie_id").unsigned().notNullable();
     table
       .foreign("movie_id")
@@ -20,5 +20,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("movies_theaters");
+  return knex.schema.dropTable("movies_theaters");
 };

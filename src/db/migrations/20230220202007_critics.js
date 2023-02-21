@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-    return knex.schema.createTable("critics", (table) => {
+    return knex.schema.createTableIfNotExists("critics", (table) => {
       table.increments("critic_id").primary();
       table.string("preferred_name");
       table.string("surname");
@@ -9,5 +9,5 @@ exports.up = function (knex) {
   };
   
   exports.down = function (knex) {
-    return knex.schema.dropTableIfExists("critics");
+    return knex.schema.dropTable("critics");
   }

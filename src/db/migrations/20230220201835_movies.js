@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-    return knex.schema.createTable("movies", (table) => {
+    return knex.schema.createTableIfNotExists("movies", (table) => {
       table.increments("movie_id").primary();
       table.integer("runtime_in_minutes");
       table.text("description");
@@ -11,5 +11,5 @@ exports.up = function (knex) {
   };
   
   exports.down = function (knex) {
-    return knex.schema.dropTableIfExists("movies");
+    return knex.schema.dropTable("movies");
   };
